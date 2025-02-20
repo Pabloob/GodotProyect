@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq7cxsv78gdiv"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_t8177"]
+[ext_resource type="Texture2D" uid="uid://bgjvg6e1jfkrk" path="res://Assets/ui/iconoMonedaUI.png" id="1_umypg"]
+[ext_resource type="Texture2D" uid="uid://cxo27xt5nfpw1" path="res://Assets/ui/iconoVidaUI.png" id="3_nohfs"]
+[ext_resource type="PackedScene" uid="uid://doknxehicqpn1" path="res://scenes/UI/menuPausa.tscn" id="4_vv4t4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lr5ft"]
+bg_color = Color(0.509804, 0.631373, 0.6, 0.454902)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_t17yp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0bg6"]
+
+[node name="Ui" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_t8177")
+
+[node name="Monedas" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.00887654
+anchor_right = 0.118069
+anchor_bottom = 0.107531
+offset_top = 0.124
+offset_right = -0.00800323
+offset_bottom = 0.159996
+theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Monedas"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0806452
+anchor_top = 0.125
+anchor_right = 0.0806452
+anchor_bottom = 0.125
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_umypg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Monedas"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0483871
+anchor_top = -0.09375
+anchor_right = -0.0483871
+anchor_bottom = -0.09375
+offset_left = 35.0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 30.0
+text = ":
+"
+label_settings = SubResource("LabelSettings_t17yp")
+metadata/_edit_use_anchors_ = true
+
+[node name="numMonedas" type="Label" parent="Monedas"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0625
+anchor_bottom = -0.0625
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 59.0
+offset_bottom = 30.0
+text = "00
+"
+label_settings = SubResource("LabelSettings_n0bg6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Vidas" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.114
+anchor_right = 0.118
+anchor_bottom = 0.213
+offset_top = 0.0639992
+offset_right = 0.0319977
+offset_bottom = -0.012001
+theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Vidas"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0806452
+anchor_top = 0.125
+anchor_right = 0.0806452
+anchor_bottom = 0.125
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_nohfs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Vidas"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0483871
+anchor_top = -0.09375
+anchor_right = -0.0483871
+anchor_bottom = -0.09375
+offset_left = 35.0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 30.0
+text = ":
+"
+label_settings = SubResource("LabelSettings_t17yp")
+metadata/_edit_use_anchors_ = true
+
+[node name="numVidas" type="Label" parent="Vidas"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0625
+anchor_bottom = -0.0625
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 59.0
+offset_bottom = 30.0
+text = "00
+"
+label_settings = SubResource("LabelSettings_n0bg6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" parent="." instance=ExtResource("4_vv4t4")]
+visible = false

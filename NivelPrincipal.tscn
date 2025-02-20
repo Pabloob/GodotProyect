@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b314hf1qoi484"]
+
+[ext_resource type="PackedScene" uid="uid://bq7cxsv78gdiv" path="res://scenes/UI/UI.tscn" id="1_8nnmn"]
+[ext_resource type="Script" path="res://scripts/nivel_principal.gd" id="1_ja7bl"]
+[ext_resource type="PackedScene" uid="uid://dhwk8oifhca1t" path="res://scenes/Personajes/jugador.tscn" id="2_3f730"]
+[ext_resource type="Script" path="res://scripts/Objetos/camera.gd" id="3_im5d2"]
+[ext_resource type="PackedScene" uid="uid://dn3u3xioj027i" path="res://scenes/UI/Fondo.tscn" id="4_v8j7k"]
+
+[node name="NivelPrincipal" type="Node2D"]
+position = Vector2(86, 50)
+script = ExtResource("1_ja7bl")
+
+[node name="Ui" parent="." instance=ExtResource("1_8nnmn")]
+
+[node name="personaje" parent="." instance=ExtResource("2_3f730")]
+position = Vector2(-41, 100)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(202, 113)
+script = ExtResource("3_im5d2")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_v8j7k")]
+
+[node name="Mapa" type="TileMapLayer" parent="."]
+position = Vector2(-77, 108)

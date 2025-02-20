@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://doknxehicqpn1"]
+
+[ext_resource type="Script" path="res://scripts/Menus/menuPausa.gd" id="1_d7wmh"]
+[ext_resource type="Texture2D" uid="uid://cn5y4vhmd84j8" path="res://Assets/ui/MenuPausa/ButtonText_Large_GreyOutline_Square_1.png" id="2_jxqyd"]
+[ext_resource type="Texture2D" uid="uid://m41432vesjx" path="res://Assets/ui/MenuPausa/ButtonText_Large_Blue_Round.png" id="4_50ekw"]
+[ext_resource type="Texture2D" uid="uid://clclhiapxdnp3" path="res://Assets/ui/MenuPausa/ButtonText_Large_Orange_Round.png" id="4_kd81n"]
+[ext_resource type="Texture2D" uid="uid://c1sh5iqhpebmo" path="res://Assets/ui/MenuPausa/Box_Rounded.png" id="4_ocuoc"]
+[ext_resource type="Texture2D" uid="uid://dxtb6u2t7m4y2" path="res://Assets/ui/MenuPausa/ButtonText_Large_GreyOutline_Round.png" id="5_oa82m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yoguu"]
+font_size = 36
+outline_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w380"]
+font_size = 36
+outline_size = 5
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_d7wmh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ocuoc")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = -162.39
+offset_right = 75.0
+offset_bottom = -98.39
+grow_horizontal = 2
+texture = ExtResource("2_jxqyd")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -15.5
+offset_right = 0.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_yoguu")
+
+[node name="Container" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -94.0
+offset_top = -100.0
+offset_right = 94.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Container"]
+texture_filter = 2
+layout_mode = 2
+icon = ExtResource("4_50ekw")
+flat = true
+
+[node name="Label" type="Label" parent="Container/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = SubResource("LabelSettings_2w380")
+
+[node name="Restart" type="Button" parent="Container"]
+texture_filter = 2
+layout_mode = 2
+icon = ExtResource("4_kd81n")
+flat = true
+
+[node name="Label" type="Label" parent="Container/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = SubResource("LabelSettings_2w380")
+
+[node name="Exit" type="Button" parent="Container"]
+texture_filter = 2
+layout_mode = 2
+icon = ExtResource("5_oa82m")
+flat = true
+
+[node name="Label" type="Label" parent="Container/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_2w380")
+
+[connection signal="pressed" from="Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Container/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]

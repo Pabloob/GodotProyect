@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn3u3xioj027i"]
+
+[ext_resource type="Texture2D" uid="uid://b14g41tduw4nu" path="res://Assets/Fondo/1.png" id="1_boqrm"]
+[ext_resource type="Texture2D" uid="uid://ceec5oha36v8v" path="res://Assets/Fondo/2.png" id="2_66vo5"]
+[ext_resource type="Texture2D" uid="uid://dp1pqvk2y6fnb" path="res://Assets/Fondo/3.png" id="3_0nwge"]
+[ext_resource type="Texture2D" uid="uid://cn1txi6oay0yq" path="res://Assets/Fondo/4.png" id="4_8pf2l"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Cielo" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cielo"]
+texture = ExtResource("1_boqrm")
+centered = false
+
+[node name="Estrellas" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Estrellas"]
+texture = ExtResource("2_66vo5")
+centered = false
+
+[node name="Nubes cercanas" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nubes cercanas"]
+texture = ExtResource("3_0nwge")
+centered = false
+
+[node name="Nubes lejanas" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nubes lejanas"]
+texture = ExtResource("4_8pf2l")
+centered = false
