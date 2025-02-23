@@ -154,18 +154,18 @@ region = Rect2(120, 0, 24, 24)
 [sub_resource type="SpriteFrames" id="SpriteFrames_urkkh"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_b1kkl")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_3rluj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ovd2x")
 }],
 "loop": false,
 "name": &"avoid",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -182,42 +182,42 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ky2p7")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_pel6f")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_mrao0")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_5ou3x")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_u5kug")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_8d66u")
 }],
 "loop": true,
 "name": &"dash",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_2a0j6")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_g6ynx")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_kic8f")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_g8684")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ba88y")
 }],
 "loop": false,
@@ -225,35 +225,35 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_lcu0k")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_pfgf3")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_mkinq")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_bmciy")
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_lf8jk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_wjbxs")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_3xnv8")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -264,7 +264,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -281,22 +281,22 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_b6nix")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_edsxj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_qg6fx")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_0kdbf")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_v2x6r")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_tdnyf")
 }],
 "loop": true,
@@ -308,9 +308,8 @@ animations = [{
 radius = 5.0
 height = 16.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpgar"]
-radius = 13.0
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pkg3"]
+size = Vector2(25, 20)
 
 [node name="jugador" type="CharacterBody2D" groups=["personajes"]]
 script = ExtResource("1_s5kl7")
@@ -318,12 +317,17 @@ script = ExtResource("1_s5kl7")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_urkkh")
-animation = &"move"
+animation = &"hurt"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0y8l3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["personajes"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_kpgar")
+shape = SubResource("RectangleShape2D_0pkg3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

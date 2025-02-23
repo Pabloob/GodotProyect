@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PRUEBA"
-run/main_scene="res://scenes/UI/menu.tscn"
+run/main_scene="res://scenes/UI/menuNiveles.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]

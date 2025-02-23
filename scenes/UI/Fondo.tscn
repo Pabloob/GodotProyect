@@ -1,40 +1,110 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn3u3xioj027i"]
+[gd_scene load_steps=13 format=3 uid="uid://dn3u3xioj027i"]
 
+[ext_resource type="Script" path="res://scripts/fondo.gd" id="1_aomtl"]
 [ext_resource type="Texture2D" uid="uid://b14g41tduw4nu" path="res://Assets/Fondo/1.png" id="1_boqrm"]
 [ext_resource type="Texture2D" uid="uid://ceec5oha36v8v" path="res://Assets/Fondo/2.png" id="2_66vo5"]
 [ext_resource type="Texture2D" uid="uid://dp1pqvk2y6fnb" path="res://Assets/Fondo/3.png" id="3_0nwge"]
 [ext_resource type="Texture2D" uid="uid://cn1txi6oay0yq" path="res://Assets/Fondo/4.png" id="4_8pf2l"]
+[ext_resource type="Texture2D" uid="uid://mx7f38ae3jv6" path="res://Assets/Fondo/FondoFinal/background_01.png" id="6_0rl1j"]
+[ext_resource type="Texture2D" uid="uid://bico3ijmsbcic" path="res://Assets/Fondo/FondoFinal/background_02.png" id="7_1117q"]
+[ext_resource type="Texture2D" uid="uid://dr63qwplnry4v" path="res://Assets/Fondo/FondoFinal/background_03.png" id="8_mlicw"]
+[ext_resource type="Texture2D" uid="uid://25q2nue8thjx" path="res://Assets/Fondo/FondoFinal/background_04.png" id="9_3axxe"]
+[ext_resource type="Texture2D" uid="uid://c43auu3w3w6j4" path="res://Assets/Fondo/FondoFinal/background_05.png" id="10_kb7cy"]
+[ext_resource type="Texture2D" uid="uid://dll00uwd3ju4y" path="res://Assets/Fondo/FondoFinal/background_06.png" id="11_45w35"]
+[ext_resource type="Texture2D" uid="uid://dvoju0071ue2h" path="res://Assets/Fondo/FondoFinal/background_07.png" id="12_su61v"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackground" type="Node2D" groups=["Fondo"]]
+script = ExtResource("1_aomtl")
 
-[node name="Cielo" type="ParallaxLayer" parent="."]
+[node name="Fondo1" type="ParallaxBackground" parent="."]
+
+[node name="Cielo" type="ParallaxLayer" parent="Fondo1"]
 texture_filter = 1
 motion_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Cielo"]
+[node name="Sprite2D" type="Sprite2D" parent="Fondo1/Cielo"]
 texture = ExtResource("1_boqrm")
 centered = false
 
-[node name="Estrellas" type="ParallaxLayer" parent="."]
+[node name="Estrellas" type="ParallaxLayer" parent="Fondo1"]
 texture_filter = 1
 motion_scale = Vector2(0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Estrellas"]
+[node name="Sprite2D" type="Sprite2D" parent="Fondo1/Estrellas"]
 texture = ExtResource("2_66vo5")
 centered = false
 
-[node name="Nubes cercanas" type="ParallaxLayer" parent="."]
+[node name="Nubes cercanas" type="ParallaxLayer" parent="Fondo1"]
 texture_filter = 1
 motion_mirroring = Vector2(576, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Nubes cercanas"]
+[node name="Sprite2D" type="Sprite2D" parent="Fondo1/Nubes cercanas"]
 texture = ExtResource("3_0nwge")
 centered = false
 
-[node name="Nubes lejanas" type="ParallaxLayer" parent="."]
+[node name="Nubes lejanas" type="ParallaxLayer" parent="Fondo1"]
 texture_filter = 1
 motion_mirroring = Vector2(576, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Nubes lejanas"]
+[node name="Sprite2D" type="Sprite2D" parent="Fondo1/Nubes lejanas"]
 texture = ExtResource("4_8pf2l")
+centered = false
+
+[node name="Fondo2" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="Fondo" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/Fondo"]
+texture = ExtResource("6_0rl1j")
+centered = false
+
+[node name="NubesLejanas" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/NubesLejanas"]
+texture = ExtResource("7_1117q")
+centered = false
+
+[node name="NubesMedias" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/NubesMedias"]
+texture = ExtResource("8_mlicw")
+centered = false
+
+[node name="FondoCercanas" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/FondoCercanas"]
+texture = ExtResource("9_3axxe")
+centered = false
+
+[node name="VolcanesLejanos" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/VolcanesLejanos"]
+texture = ExtResource("10_kb7cy")
+centered = false
+
+[node name="VolcanesCercanos" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/VolcanesCercanos"]
+texture = ExtResource("11_45w35")
+centered = false
+
+[node name="Suelo" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo2/Suelo"]
+texture = ExtResource("12_su61v")
 centered = false

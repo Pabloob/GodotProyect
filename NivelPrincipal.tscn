@@ -1,25 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://b314hf1qoi484"]
+[gd_scene load_steps=7 format=3 uid="uid://b314hf1qoi484"]
 
 [ext_resource type="PackedScene" uid="uid://bq7cxsv78gdiv" path="res://scenes/UI/UI.tscn" id="1_8nnmn"]
 [ext_resource type="Script" path="res://scripts/nivel_principal.gd" id="1_ja7bl"]
 [ext_resource type="PackedScene" uid="uid://dhwk8oifhca1t" path="res://scenes/Personajes/jugador.tscn" id="2_3f730"]
 [ext_resource type="Script" path="res://scripts/Objetos/camera.gd" id="3_im5d2"]
 [ext_resource type="PackedScene" uid="uid://dn3u3xioj027i" path="res://scenes/UI/Fondo.tscn" id="4_v8j7k"]
+[ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="6_mlujy"]
 
 [node name="NivelPrincipal" type="Node2D"]
+texture_filter = 1
 position = Vector2(86, 50)
 script = ExtResource("1_ja7bl")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_v8j7k")]
 
 [node name="Ui" parent="." instance=ExtResource("1_8nnmn")]
 
 [node name="personaje" parent="." instance=ExtResource("2_3f730")]
-position = Vector2(-41, 100)
+position = Vector2(-41, 74)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(202, 113)
+position = Vector2(202, 112)
 script = ExtResource("3_im5d2")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_v8j7k")]
-
 [node name="Mapa" type="TileMapLayer" parent="."]
-position = Vector2(-77, 108)
+position = Vector2(-77, 82)
+tile_set = ExtResource("6_mlujy")

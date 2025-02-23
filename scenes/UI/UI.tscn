@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq7cxsv78gdiv"]
+[gd_scene load_steps=9 format=3 uid="uid://bq7cxsv78gdiv"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_t8177"]
 [ext_resource type="Texture2D" uid="uid://bgjvg6e1jfkrk" path="res://Assets/ui/iconoMonedaUI.png" id="1_umypg"]
 [ext_resource type="Texture2D" uid="uid://cxo27xt5nfpw1" path="res://Assets/ui/iconoVidaUI.png" id="3_nohfs"]
 [ext_resource type="PackedScene" uid="uid://doknxehicqpn1" path="res://scenes/UI/menuPausa.tscn" id="4_vv4t4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q171v"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lr5ft"]
 bg_color = Color(0.509804, 0.631373, 0.6, 0.454902)
@@ -18,6 +21,15 @@ corner_radius_bottom_left = 15
 
 [node name="Ui" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_t8177")
+
+[node name="MIERDA" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q171v")
+metadata/_edit_use_anchors_ = true
 
 [node name="Monedas" type="Panel" parent="."]
 anchors_preset = -1
