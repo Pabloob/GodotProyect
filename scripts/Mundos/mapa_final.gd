@@ -1,13 +1,21 @@
 extends TileMapLayer
 
-func _on_area_salida_body_entered(body: Node2D) -> void:
-	if body.is_in_group("personajes"):
-		body.MOVE_SPEED=150
-		get_tree().get_first_node_in_group("Fondo").activar_fondo_2()
-		get_tree().get_first_node_in_group("UI").fade_out()
+var enZonaFinal = false
 
-func _on_area_entrada_body_entered(body: Node2D) -> void:
-	if body.is_in_group("personajes"):
-		body.MOVE_SPEED=700
-		get_tree().get_first_node_in_group("Fondo").activar_fondo_1()
-		get_tree().get_first_node_in_group("UI").fade_in()
+func _on_zona_normal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jugador"):
+		if enZonaFinal:
+			get_tree().get_first_node_in_group("ui").fade_out()
+			get_tree().get_first_node_in_group("fondo").activar_fondo_1()
+			enZonaFinal=false
+		else:
+			get_tree().get_first_node_in_group("ui").fade_in()
+
+func _on_zona_final_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jugador"):
+		if enZonaFinal:
+			get_tree().get_first_node_in_group("ui").fade_in()
+		else:
+			get_tree().get_first_node_in_group("ui").fade_out()
+			get_tree().get_first_node_in_group("fondo").activar_fondo_2()
+			enZonaFinal=true

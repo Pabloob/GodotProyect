@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7406qrmndesq"
-path="res://.godot/imported/mapaFinal.png-bf4f0139d80d90d4769f899d43404d7d.ctex"
+uid="uid://dh275o11vwpo7"
+path="res://.godot/imported/Background Small.png-925da59d1a6c1d4dc8cae22946e24a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mapa/mapaFinal.png"
-dest_files=["res://.godot/imported/mapaFinal.png-bf4f0139d80d90d4769f899d43404d7d.ctex"]
+source_file="res://Assets/ui/BotonesMovil/Background Small.png"
+dest_files=["res://.godot/imported/Background Small.png-925da59d1a6c1d4dc8cae22946e24a2f.ctex"]
 
 [params]
 

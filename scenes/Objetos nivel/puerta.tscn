@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cojpq1152ih5f"]
+
+[ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="1_wbixg"]
+[ext_resource type="Script" path="res://scripts/Objetos/puerta.gd" id="1_y0j1j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxmdg"]
+size = Vector2(25, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cp0k"]
+size = Vector2(18, 23)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fd273"]
+font_size = 13
+
+[node name="Puerta" type="StaticBody2D" groups=["objeto"]]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_y0j1j")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(9, 11)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 2, 0, 10, 0, 6, 0, 0, 0, 255, 255, 254, 255, 2, 0, 10, 0, 5, 0, 0, 0)
+tile_set = ExtResource("1_wbixg")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qxmdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_5cp0k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -37.0
+offset_right = 40.0
+offset_bottom = -14.0
+label_settings = SubResource("LabelSettings_fd273")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -17,12 +17,12 @@ script = ExtResource("1_ja7bl")
 [node name="Ui" parent="." instance=ExtResource("1_8nnmn")]
 
 [node name="personaje" parent="." instance=ExtResource("2_3f730")]
-position = Vector2(-41, 74)
+position = Vector2(-60, 85)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(202, 112)
 script = ExtResource("3_im5d2")
 
 [node name="Mapa" type="TileMapLayer" parent="."]
-position = Vector2(-77, 82)
+position = Vector2(-75, 94.5)
 tile_set = ExtResource("6_mlujy")

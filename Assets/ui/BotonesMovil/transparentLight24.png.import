@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s6vv3uk87k2f"
-path="res://.godot/imported/plataforma.png-9071dd19d97d8f73b6b86d80e8c8dd97.ctex"
+uid="uid://thd1awvfao3x"
+path="res://.godot/imported/transparentLight24.png-ee1884c6354731650a8604baf0f3ac3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/objetos/plataforma.png"
-dest_files=["res://.godot/imported/plataforma.png-9071dd19d97d8f73b6b86d80e8c8dd97.ctex"]
+source_file="res://Assets/ui/BotonesMovil/transparentLight24.png"
+dest_files=["res://.godot/imported/transparentLight24.png-ee1884c6354731650a8604baf0f3ac3a.ctex"]
 
 [params]
 

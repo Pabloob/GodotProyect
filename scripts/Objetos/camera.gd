@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var player = $"../personaje"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target_x = player.global_position.x
 	var current_y = global_position.y 
 	

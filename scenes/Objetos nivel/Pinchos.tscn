@@ -1,19 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cec20jq8hw17f"]
 
-[ext_resource type="Texture2D" uid="uid://7qk3nuts5xe2" path="res://Assets/objetos/pinchos.png" id="2_vnsai"]
 [ext_resource type="Script" path="res://scripts/Objetos/pinchos.gd" id="2_xd8mm"]
+[ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="3_o888e"]
 
-[node name="Pinchos" type="Area2D"]
+[node name="Pinchos" type="Area2D" groups=["objeto"]]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_xd8mm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(14, 6)
-texture = ExtResource("2_vnsai")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(5.25, 5.84375)
-scale = Vector2(1.62504, 0.34375)
-polygon = PackedVector2Array(12, -14, 14, 16, 6, 16, -3.231, 16, -1, -14, 2.308, 15, 5, -14, 8.461, 15)
+polygon = PackedVector2Array(5, 6, 1, 10, -2, 18, 20, 18, 17, 10, 13, 6, 9, 10)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 3, 0, 0, 0)
+tile_set = ExtResource("3_o888e")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

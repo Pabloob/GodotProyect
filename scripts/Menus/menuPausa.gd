@@ -22,4 +22,4 @@ func _on_restart_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/UI/menuNiveles.tscn")

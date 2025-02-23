@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bico3ijmsbcic"
-path="res://.godot/imported/background_02.png-a6ba8e902fb4e2a223eccb635b417885.ctex"
+uid="uid://c48jtkaqi2iox"
+path="res://.godot/imported/Handle Small.png-1e0c8b8598b6dda5301f80a5c7123513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fondo/FondoFinal/background_02.png"
-dest_files=["res://.godot/imported/background_02.png-a6ba8e902fb4e2a223eccb635b417885.ctex"]
+source_file="res://Assets/ui/BotonesMovil/Handle Small.png"
+dest_files=["res://.godot/imported/Handle Small.png-1e0c8b8598b6dda5301f80a5c7123513.ctex"]
 
 [params]
 

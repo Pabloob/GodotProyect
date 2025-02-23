@@ -1,18 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkj0o5bwpixke"]
 
-[ext_resource type="Script" path="res://scripts/Personajes/personaje.gd" id="1_vufex"]
-[ext_resource type="Texture2D" uid="uid://ci1mo4xswvmxe" path="res://Assets/personaje/kira/base/idle.png" id="2_u7o41"]
+[ext_resource type="Script" path="res://scripts/Personajes/personaje.gd" id="1_2kbsh"]
+[ext_resource type="Texture2D" uid="uid://ci1mo4xswvmxe" path="res://Assets/personaje/kira/base/idle.png" id="2_b6dxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gldq8"]
-atlas = ExtResource("2_u7o41")
+atlas = ExtResource("2_b6dxr")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sv7g"]
-atlas = ExtResource("2_u7o41")
+atlas = ExtResource("2_b6dxr")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vn6e2"]
-atlas = ExtResource("2_u7o41")
+atlas = ExtResource("2_b6dxr")
 region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urkkh"]
@@ -39,8 +39,8 @@ height = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0vk6"]
 size = Vector2(30, 30)
 
-[node name="personaje" type="CharacterBody2D"]
-script = ExtResource("1_vufex")
+[node name="objetivo" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_2kbsh")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

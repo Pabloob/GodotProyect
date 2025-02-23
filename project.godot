@@ -30,6 +30,17 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="PRUEBA"
 
+[global_group]
+
+fondo=""
+menu=""
+jugador=""
+npc=""
+objeto=""
+ui=""
+enemigo=""
+mapa=""
+
 [input]
 
 move_left={
@@ -68,3 +79,4 @@ left_click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

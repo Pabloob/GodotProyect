@@ -2,4 +2,5 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.is_in_group("jugador"):
-		body.perder_vida(100)
+		body.llaves+=1
+		queue_free()

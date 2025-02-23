@@ -200,7 +200,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_8d66u")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
 "speed": 6.0
 }, {
@@ -251,7 +251,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_3xnv8")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 3.0
 }, {
@@ -299,7 +299,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_tdnyf")
 }],
-"loop": true,
+"loop": false,
 "name": &"move",
 "speed": 5.0
 }]
@@ -311,20 +311,18 @@ height = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pkg3"]
 size = Vector2(25, 20)
 
-[node name="jugador" type="CharacterBody2D" groups=["personajes"]]
+[node name="jugador" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_s5kl7")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_urkkh")
-animation = &"hurt"
-frame = 3
-frame_progress = 1.0
+animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0y8l3")
 
-[node name="Area2D" type="Area2D" parent="." groups=["personajes"]]
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_0pkg3")

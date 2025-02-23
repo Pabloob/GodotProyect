@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq7cxsv78gdiv"]
+[gd_scene load_steps=16 format=3 uid="uid://bq7cxsv78gdiv"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_t8177"]
 [ext_resource type="Texture2D" uid="uid://bgjvg6e1jfkrk" path="res://Assets/ui/iconoMonedaUI.png" id="1_umypg"]
 [ext_resource type="Texture2D" uid="uid://cxo27xt5nfpw1" path="res://Assets/ui/iconoVidaUI.png" id="3_nohfs"]
 [ext_resource type="PackedScene" uid="uid://doknxehicqpn1" path="res://scenes/UI/menuPausa.tscn" id="4_vv4t4"]
+[ext_resource type="PackedScene" uid="uid://cwxfssc7u3ywi" path="res://scenes/UI/FinJuego.tscn" id="5_usdn8"]
+[ext_resource type="Script" path="res://scripts/joystick.gd" id="6_8h45i"]
+[ext_resource type="Texture2D" uid="uid://dh275o11vwpo7" path="res://Assets/ui/BotonesMovil/Background Small.png" id="6_27xqq"]
+[ext_resource type="Texture2D" uid="uid://d3vj7jqx8bpn" path="res://Assets/ui/BotonesMovil/transparentLight47.png" id="6_liprc"]
+[ext_resource type="Texture2D" uid="uid://c48jtkaqi2iox" path="res://Assets/ui/BotonesMovil/Handle Small.png" id="7_drfrx"]
+[ext_resource type="Texture2D" uid="uid://bba15eln2jlti" path="res://Assets/ui/BotonesMovil/transparentLight12.png" id="8_1voki"]
+[ext_resource type="Texture2D" uid="uid://thd1awvfao3x" path="res://Assets/ui/BotonesMovil/transparentLight24.png" id="8_xmf5e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q171v"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,10 +26,11 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_n0bg6"]
 
-[node name="Ui" type="CanvasLayer" groups=["UI"]]
+[node name="Ui" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_t8177")
 
-[node name="MIERDA" type="Panel" parent="."]
+[node name="PanelOscurecer" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,7 +49,6 @@ offset_top = 0.124
 offset_right = -0.00800323
 offset_bottom = 0.159996
 theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Monedas"]
 texture_filter = 2
@@ -99,7 +106,6 @@ offset_top = 0.0639992
 offset_right = 0.0319977
 offset_bottom = -0.012001
 theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Vidas"]
 texture_filter = 2
@@ -149,3 +155,72 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Menu" parent="." instance=ExtResource("4_vv4t4")]
 visible = false
+
+[node name="HasGanado" parent="." instance=ExtResource("5_usdn8")]
+visible = false
+
+[node name="PanelMovil" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="PanelMovil"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 236.0
+offset_right = 99.0
+offset_bottom = 324.0
+script = ExtResource("6_8h45i")
+
+[node name="JoystickBase" type="TextureRect" parent="PanelMovil/Control"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 91.0
+offset_bottom = 88.0
+texture = ExtResource("6_27xqq")
+
+[node name="JoystickKnob" type="TextureRect" parent="PanelMovil/Control/JoystickBase"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -20.5
+offset_right = 20.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_drfrx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelMovil"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 396.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BotonAtaque" type="Button" parent="PanelMovil/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_liprc")
+flat = true
+
+[node name="BotonSalto" type="Button" parent="PanelMovil/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("8_xmf5e")
+flat = true
+
+[node name="BotonPausa" type="Button" parent="PanelMovil"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 56.0
+grow_horizontal = 0
+icon = ExtResource("8_1voki")
+flat = true
+
+[connection signal="pressed" from="PanelMovil/HBoxContainer/BotonAtaque" to="." method="_on_boton_ataque_pressed"]
+[connection signal="pressed" from="PanelMovil/HBoxContainer/BotonSalto" to="." method="_on_boton_salto_pressed"]
+[connection signal="pressed" from="PanelMovil/BotonPausa" to="." method="_on_boton_pausa_pressed"]

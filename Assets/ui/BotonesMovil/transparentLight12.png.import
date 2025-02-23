@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr63qwplnry4v"
-path="res://.godot/imported/background_03.png-4e21c064fda59437383a61d7277e0d81.ctex"
+uid="uid://bba15eln2jlti"
+path="res://.godot/imported/transparentLight12.png-e0f09cf59afb52004ba243735a5139d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fondo/FondoFinal/background_03.png"
-dest_files=["res://.godot/imported/background_03.png-4e21c064fda59437383a61d7277e0d81.ctex"]
+source_file="res://Assets/ui/BotonesMovil/transparentLight12.png"
+dest_files=["res://.godot/imported/transparentLight12.png-e0f09cf59afb52004ba243735a5139d8.ctex"]
 
 [params]
 
