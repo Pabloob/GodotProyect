@@ -1,27 +1,17 @@
 extends Control
 
-@export var icon_salir_hover:Texture2D
-@export var icon_start_hover:Texture2D
-@export var icon_salir_idle:Texture2D
-@export var icon_start_idle:Texture2D
-@onready var Exit=$TextureRect/Container/VBoxContainer2/Exit
-@onready var Start=$TextureRect/Container/VBoxContainer/Start
+@export_file("*.tscn") var rutaMenuNiveles: String
+@export_file("*.tscn") var rutaOpciones: String
 
-func _on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/UI/menuNiveles.tscn")
+func _ready():
+	GameData.cargar_partida()
 
-func _on_exit_pressed():	
+func _on_jugar_pressed() -> void:
+	get_tree().change_scene_to_file(rutaMenuNiveles)
+
+func _on_opciones_pressed() -> void:
+	get_tree().change_scene_to_file(rutaOpciones)
+	
+func _on_salir_pressed() -> void:
+	GameData.guardar_partida()
 	get_tree().quit()
-
-
-func _on_start_mouse_entered() -> void:
-	Start.icon=icon_start_hover
-
-func _on_exit_mouse_entered() -> void:
-	Exit.icon=icon_salir_hover
-
-func _on_start_mouse_exited() -> void:
-	Start.icon=icon_start_idle
-
-func _on_exit_mouse_exited() -> void:
-	Exit.icon=icon_salir_idle

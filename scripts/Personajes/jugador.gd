@@ -47,7 +47,7 @@ func _procesar_movimiento():
 		velocity.y = JUMP_HEIGHT
 
 	# Ataque
-	if Input.is_action_just_pressed("left_click") and puede_atacar:
+	if Input.is_action_just_pressed("atack") and puede_atacar:
 		_atacar()
 
 	# Voltear sprite según la dirección del movimiento
@@ -64,13 +64,14 @@ func _actualizar_animacion():
 		anim.play("hurt")
 	elif not is_on_floor():
 		anim.play("jump")
+		await anim.animation_finished
 	elif velocity.x != 0:
 		anim.play("move")
 	else:
 		anim.play("idle")
 
 func _atacar():
-	if atacando or recibiendo_dano:
+	if atacando or recibiendo_dano or not is_on_floor():
 		return
 
 	atacando = true
@@ -102,10 +103,10 @@ func _morir():
 	is_dead = true
 	anim.play("dead")
 	GameData.vidas = 3
-	GameData.monedas = 0
+	GameData.monedasTemp = 0
 	await get_tree().create_timer(1.0).timeout
 	var ui = get_tree().get_first_node_in_group("ui")
-	ui.mostrarMensajeHasGanado(true)
+	ui.mostrarMensaje(true)
 
 func _recibir_golpe():
 	recibiendo_dano = true
