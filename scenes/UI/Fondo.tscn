@@ -10,6 +10,7 @@
 bg_color = Color(0, 0, 0, 1)
 
 [node name="ParallaxBackground" type="Node2D" groups=["fondo"]]
+texture_filter = 1
 script = ExtResource("1_aomtl")
 
 [node name="Fondo1" type="ParallaxBackground" parent="."]
@@ -50,6 +51,7 @@ centered = false
 visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo2"]
+texture_filter = 1
 motion_mirroring = Vector2(576, 0)
 
 [node name="Panel" type="Panel" parent="Fondo2/ParallaxLayer"]

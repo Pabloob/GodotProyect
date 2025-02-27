@@ -5,6 +5,12 @@ extends StaticBody2D
 @onready var colisionador = $CollisionShape2D
 @onready var label = $Label
 
+func _ready():
+	await get_tree().process_frame
+	var ui = get_tree().get_first_node_in_group("ui")
+	ui.numLlavesNecesarias = numLlavesNecesarias
+	ui.actualizar_llaves(0)
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		if body.llaves >= numLlavesNecesarias:

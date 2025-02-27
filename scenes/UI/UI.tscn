@@ -1,14 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq7cxsv78gdiv"]
+[gd_scene load_steps=12 format=3 uid="uid://bq7cxsv78gdiv"]
 
 [ext_resource type="Script" path="res://scripts/UI/ui.gd" id="1_t8177"]
 [ext_resource type="Texture2D" uid="uid://bgjvg6e1jfkrk" path="res://Assets/ui/iconoMonedaUI.png" id="1_umypg"]
 [ext_resource type="Texture2D" uid="uid://cxo27xt5nfpw1" path="res://Assets/ui/iconoVidaUI.png" id="3_nohfs"]
-[ext_resource type="PackedScene" uid="uid://doknxehicqpn1" path="res://scenes/UI/Menus/menuPausa.tscn" id="4_vv4t4"]
-[ext_resource type="PackedScene" uid="uid://cwxfssc7u3ywi" path="res://scenes/UI/Menus/FinJuego.tscn" id="5_usdn8"]
-[ext_resource type="Texture2D" uid="uid://d3vj7jqx8bpn" path="res://Assets/ui/BotonesMovil/transparentLight47.png" id="6_liprc"]
-[ext_resource type="Texture2D" uid="uid://dp6hjjuh5nxim" path="res://Assets/ui/Botones/Pausa.png" id="8_5wyhk"]
-[ext_resource type="Texture2D" uid="uid://thd1awvfao3x" path="res://Assets/ui/BotonesMovil/transparentLight24.png" id="8_xmf5e"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/UI/joystick.tscn" id="11_35xib"]
+[ext_resource type="Texture2D" uid="uid://cqdv4jdpns6py" path="res://Assets/objetos/llave.png" id="4_86v8d"]
+[ext_resource type="PackedScene" uid="uid://doknxehicqpn1" path="res://scenes/Menus/MenuPausa.tscn" id="4_vv4t4"]
+[ext_resource type="PackedScene" uid="uid://cwxfssc7u3ywi" path="res://scenes/Menus/FinJuego.tscn" id="5_usdn8"]
+[ext_resource type="PackedScene" uid="uid://bg24m5lhv4svs" path="res://scenes/UI/ControlesMovil.tscn" id="6_s6fyh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q171v"]
 bg_color = Color(0, 0, 0, 1)
@@ -34,21 +32,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q171v")
-metadata/_edit_use_anchors_ = true
 
 [node name="Monedas" type="Panel" parent="."]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.0104167
 anchor_top = 0.00887654
-anchor_right = 0.118069
-anchor_bottom = 0.107531
+anchor_right = 0.132
+anchor_bottom = 0.108
 offset_top = 0.124
-offset_right = -0.00800323
-offset_bottom = 0.159996
+offset_right = -0.0319824
+offset_bottom = 0.00804138
 theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
 
 [node name="TextureRect" type="TextureRect" parent="Monedas"]
-texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0806452
@@ -61,7 +58,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_umypg")
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Monedas"]
 layout_mode = 1
@@ -77,7 +73,6 @@ offset_bottom = 30.0
 text = ":
 "
 label_settings = SubResource("LabelSettings_t17yp")
-metadata/_edit_use_anchors_ = true
 
 [node name="numMonedas" type="Label" parent="Monedas"]
 layout_mode = 1
@@ -91,21 +86,25 @@ offset_bottom = 30.0
 text = "00
 "
 label_settings = SubResource("LabelSettings_n0bg6")
-metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Monedas"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Vidas" type="Panel" parent="."]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.0104167
 anchor_top = 0.114
-anchor_right = 0.118
+anchor_right = 0.132
 anchor_bottom = 0.213
 offset_top = 0.0639992
-offset_right = 0.0319977
+offset_right = -0.0319824
 offset_bottom = -0.012001
 theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
 
 [node name="TextureRect" type="TextureRect" parent="Vidas"]
-texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0806452
@@ -150,61 +149,65 @@ text = "00
 label_settings = SubResource("LabelSettings_n0bg6")
 metadata/_edit_use_anchors_ = true
 
+[node name="LLaves" type="Panel" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.219
+anchor_right = 0.132
+anchor_bottom = 0.318
+offset_left = -1.90735e-05
+offset_top = 0.0439987
+offset_right = -0.0319977
+offset_bottom = -0.0320053
+theme_override_styles/panel = SubResource("StyleBoxFlat_lr5ft")
+
+[node name="TextureRect" type="TextureRect" parent="LLaves"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0806452
+anchor_top = 0.125
+anchor_right = 0.0806452
+anchor_bottom = 0.125
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_86v8d")
+
+[node name="Label" type="Label" parent="LLaves"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0483871
+anchor_top = -0.09375
+anchor_right = -0.0483871
+anchor_bottom = -0.09375
+offset_left = 35.0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 30.0
+text = ":
+"
+label_settings = SubResource("LabelSettings_t17yp")
+
+[node name="numLLaves" type="Label" parent="LLaves"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0625
+anchor_bottom = -0.0625
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 59.0
+offset_bottom = 30.0
+text = "0/0
+"
+label_settings = SubResource("LabelSettings_n0bg6")
+
+[node name="ControlesMovil" parent="." instance=ExtResource("6_s6fyh")]
+
 [node name="MenuPausa" parent="." instance=ExtResource("4_vv4t4")]
 visible = false
 
 [node name="MenuFinJuego" parent="." instance=ExtResource("5_usdn8")]
 visible = false
-
-[node name="PanelMovil" type="CanvasLayer" parent="."]
-
-[node name="ContenedorBotones" type="HBoxContainer" parent="PanelMovil"]
-texture_filter = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -196.0
-offset_top = -104.0
-offset_right = -16.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="BotonAtaque" type="Button" parent="PanelMovil/ContenedorBotones"]
-layout_mode = 2
-focus_mode = 0
-icon = ExtResource("6_liprc")
-flat = true
-
-[node name="BotonSalto" type="Button" parent="PanelMovil/ContenedorBotones"]
-layout_mode = 2
-focus_mode = 0
-icon = ExtResource("8_xmf5e")
-flat = true
-
-[node name="BotonPausa" type="Button" parent="PanelMovil"]
-texture_filter = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_top = 10.0
-offset_right = -12.0
-offset_bottom = 62.0
-grow_horizontal = 0
-focus_mode = 0
-icon = ExtResource("8_5wyhk")
-flat = true
-
-[node name="Joystick" parent="PanelMovil" instance=ExtResource("11_35xib")]
-offset_left = 11.0
-offset_top = -124.0
-offset_right = 98.0
-offset_bottom = -37.0
-scale = Vector2(1.3, 1.3)
-
-[connection signal="pressed" from="PanelMovil/ContenedorBotones/BotonAtaque" to="." method="_on_boton_ataque_pressed"]
-[connection signal="pressed" from="PanelMovil/ContenedorBotones/BotonSalto" to="." method="_on_boton_salto_pressed"]
-[connection signal="pressed" from="PanelMovil/BotonPausa" to="." method="_on_boton_pausa_pressed"]

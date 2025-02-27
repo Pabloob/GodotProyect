@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=3 uid="uid://de45h6qpoj4id"]
+
+[ext_resource type="Script" path="res://scripts/Menus/MenuPrincipal.gd" id="1_yb1pi"]
+[ext_resource type="Texture2D" uid="uid://drerndh7dxdit" path="res://Assets/ui/MenuInicio/1.png" id="2_e4xuh"]
+[ext_resource type="Texture2D" uid="uid://bjsh8m8jwmxgl" path="res://Assets/ui/MenuInicio/2.png" id="3_qegv6"]
+[ext_resource type="Texture2D" uid="uid://dlqrf4mgcnaa6" path="res://Assets/ui/MenuInicio/3.png" id="4_q7yfd"]
+[ext_resource type="Texture2D" uid="uid://cbsxmig02t622" path="res://Assets/ui/MenuInicio/4.png" id="5_40ohq"]
+[ext_resource type="Texture2D" uid="uid://dhffgthbc4k8j" path="res://Assets/ui/MenuInicio/JUGAR.png" id="6_8rs0s"]
+[ext_resource type="Texture2D" uid="uid://cayqhdah10ovk" path="res://Assets/ui/MenuInicio/OPCIONES.png" id="7_w2uqq"]
+[ext_resource type="Texture2D" uid="uid://dide12eym32b8" path="res://Assets/ui/MenuInicio/SALIR.png" id="8_dj437"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng816"]
+bg_color = Color(0.65098, 0.65098, 0.65098, 0.4)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_eok7w"]
+font_size = 54
+outline_size = 10
+
+[node name="Menu" type="Control" groups=["menu"]]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yb1pi")
+rutaMenuNiveles = "res://scenes/Menus/MenuNiveles.tscn"
+rutaOpciones = "res://scenes/Menus/MenuOpciones.tscn"
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_e4xuh")
+
+[node name="Fondo2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_qegv6")
+
+[node name="NubesLejanas" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_q7yfd")
+
+[node name="NubesCercanas" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("5_40ohq")
+
+[node name="ContenedorBotones" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -41.6175
+offset_right = 21.0
+offset_bottom = 110.383
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jugar" type="Button" parent="ContenedorBotones"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("6_8rs0s")
+flat = true
+
+[node name="Panel" type="Panel" parent="ContenedorBotones/Jugar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ng816")
+
+[node name="Opciones" type="Button" parent="ContenedorBotones"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("7_w2uqq")
+flat = true
+
+[node name="Panel" type="Panel" parent="ContenedorBotones/Opciones"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ng816")
+
+[node name="Salir" type="Button" parent="ContenedorBotones"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("8_dj437")
+flat = true
+
+[node name="Panel" type="Panel" parent="ContenedorBotones/Salir"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ng816")
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "DINO JUMP"
+label_settings = SubResource("LabelSettings_eok7w")
+
+[connection signal="pressed" from="ContenedorBotones/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Salir" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ContenedorBotones/Salir" to="." method="_on_salir_pressed"]

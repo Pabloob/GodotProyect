@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwxfssc7u3ywi"]
+
+[ext_resource type="Script" path="res://scripts/Menus/FinJuego.gd" id="1_rre5f"]
+[ext_resource type="Texture2D" uid="uid://b5wrc4j1hxg0r" path="res://Assets/ui/Cajas/Medium.png" id="2_0vw1h"]
+[ext_resource type="Texture2D" uid="uid://c1i7j41rlj1jg" path="res://Assets/ui/Botones/Jugar.png" id="3_cukgu"]
+[ext_resource type="Texture2D" uid="uid://2ae0r2xdc7m7" path="res://Assets/ui/Botones/Reiniciar.png" id="4_nthdf"]
+[ext_resource type="Texture2D" uid="uid://db0tiekw8ihw" path="res://Assets/ui/Botones/Niveles.png" id="5_dng42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xh7w5"]
+font_size = 32
+
+[node name="FinJuego" type="Control" groups=["menu"]]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rre5f")
+rutaNivelPrincipal = "res://NivelPrincipal.tscn"
+rutaMenuNiveles = "res://scenes/Menus/MenuNiveles.tscn"
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -124.0
+offset_right = 225.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0vw1h")
+
+[node name="ContenedorBotones" type="HBoxContainer" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -24.0
+offset_right = 98.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reintentar" type="Button" parent="Fondo/ContenedorBotones"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "REINTENTAR"
+icon = ExtResource("4_nthdf")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Siguiente" type="Button" parent="Fondo/ContenedorBotones"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "SIGUIENTE"
+icon = ExtResource("3_cukgu")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Salir" type="Button" parent="Fondo/ContenedorBotones"]
+layout_mode = 2
+focus_mode = 0
+text = "SALIR"
+icon = ExtResource("5_dng42")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Texto" type="Label" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 15.0
+offset_right = 59.5
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "HAS GANADO!!!"
+label_settings = SubResource("LabelSettings_xh7w5")
+
+[connection signal="pressed" from="Fondo/ContenedorBotones/Reintentar" to="." method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Fondo/ContenedorBotones/Siguiente" to="." method="_on_siguiente_pressed"]
+[connection signal="pressed" from="Fondo/ContenedorBotones/Salir" to="." method="_on_salir_pressed"]

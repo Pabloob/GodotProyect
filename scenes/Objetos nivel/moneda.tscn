@@ -113,18 +113,18 @@ animations = [{
 }]
 
 [node name="Moneda" type="Node2D" groups=["objeto"]]
+texture_filter = 1
 
-[node name="Moneda" type="Area2D" parent="."]
+[node name="Area" type="Area2D" parent="."]
 script = ExtResource("1_o5mp5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_yw4m0")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Moneda"]
-texture_filter = 1
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Area"]
 sprite_frames = SubResource("SpriteFrames_1jguu")
 animation = &"coin"
 frame_progress = 0.623075
 speed_scale = 2.0
 
-[connection signal="body_entered" from="Moneda" to="Moneda" method="_on_body_entered"]
+[connection signal="body_entered" from="Area" to="Area" method="_on_body_entered"]

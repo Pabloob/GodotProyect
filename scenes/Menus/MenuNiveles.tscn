@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://v6urwryf5u3a"]
+
+[ext_resource type="Script" path="res://scripts/Menus/MenuNiveles.gd" id="1_de41b"]
+[ext_resource type="Texture2D" uid="uid://berc27xoe2atj" path="res://Assets/ui/Botones/Nivel.png" id="3_ek42j"]
+[ext_resource type="Texture2D" uid="uid://cgn40646r4bpn" path="res://Assets/ui/Botones/Home.png" id="3_ll3t1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n0gbh"]
+load_path = "res://.godot/imported/NivelBloqueado.png-fc90e95001b6115582f0fa68d165ddb6.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlwb0"]
+font_size = 40
+outline_size = 6
+
+[node name="MenuNiveles" type="Control" groups=["menu"]]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_de41b")
+LEVELS_FOLDER = "res://scenes/Niveles"
+rutaMenu = "res://scenes/Menus/MenuPrincipal.tscn"
+assetBloqueado = SubResource("CompressedTexture2D_n0gbh")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="ContenedorBotones" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087
+anchor_top = 0.29
+anchor_right = 0.955
+anchor_bottom = 0.938
+offset_left = -0.112003
+offset_top = 0.0399933
+offset_right = -0.0800171
+offset_bottom = 0.0879822
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="BotonBase" type="Button" parent="ContenedorBotones"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+text = "0"
+icon = ExtResource("3_ek42j")
+flat = true
+icon_alignment = 1
+
+[node name="Texto" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.0
+offset_right = 94.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "NIVELES"
+label_settings = SubResource("LabelSettings_tlwb0")
+horizontal_alignment = 1
+
+[node name="Salir" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+icon = ExtResource("3_ll3t1")
+flat = true
+
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

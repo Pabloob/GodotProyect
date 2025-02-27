@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg24m5lhv4svs"]
+
+[ext_resource type="Script" path="res://scripts/UI/controlesMovil.gd" id="1_4rwa5"]
+[ext_resource type="Texture2D" uid="uid://dh275o11vwpo7" path="res://Assets/ui/BotonesMovil/Background Small.png" id="2_q6lx5"]
+[ext_resource type="Texture2D" uid="uid://c48jtkaqi2iox" path="res://Assets/ui/BotonesMovil/Handle Small.png" id="3_qv0kq"]
+[ext_resource type="Texture2D" uid="uid://bba15eln2jlti" path="res://Assets/ui/BotonesMovil/transparentLight12.png" id="4_xbica"]
+[ext_resource type="Texture2D" uid="uid://d3vj7jqx8bpn" path="res://Assets/ui/BotonesMovil/transparentLight47.png" id="5_tqdnu"]
+[ext_resource type="Texture2D" uid="uid://thd1awvfao3x" path="res://Assets/ui/BotonesMovil/transparentLight24.png" id="6_62w43"]
+
+[node name="ControlesMovil" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4rwa5")
+
+[node name="Pausa" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 56.0
+grow_horizontal = 0
+focus_mode = 0
+icon = ExtResource("4_xbica")
+flat = true
+
+[node name="Botones" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.663
+anchor_top = 0.642
+anchor_right = 0.976
+anchor_bottom = 0.889
+offset_left = 0.111969
+offset_top = -0.00801086
+offset_right = -0.176025
+offset_bottom = -0.0360107
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Atacar" type="TouchScreenButton" parent="Botones"]
+position = Vector2(88, 0)
+texture_normal = ExtResource("5_tqdnu")
+
+[node name="Saltar" type="TouchScreenButton" parent="Botones"]
+texture_normal = ExtResource("6_62w43")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.024
+anchor_top = 0.642
+anchor_right = 0.198
+anchor_bottom = 0.951
+offset_left = 0.176
+offset_top = -0.00801086
+offset_right = -0.0480042
+offset_bottom = -0.124023
+grow_vertical = 0
+
+[node name="Fondo" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_q6lx5")
+stretch_mode = 5
+
+[node name="Icono" type="TextureRect" parent="Control/Fondo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("3_qv0kq")
+stretch_mode = 5
+
+[connection signal="pressed" from="Pausa" to="." method="_on_pausa_pressed"]
+[connection signal="pressed" from="Botones/Atacar" to="." method="_on_atacar_pressed"]
+[connection signal="pressed" from="Botones/Saltar" to="." method="_on_saltar_pressed"]

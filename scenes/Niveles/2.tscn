@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=4 uid="uid://dlf8weyog40yx"]
 
 [ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="1_8tsbs"]
-[ext_resource type="Script" path="res://scripts/Mundos/mapa_final.gd" id="2_83vkk"]
+[ext_resource type="Script" path="res://scripts/Mundos/2.gd" id="2_83vkk"]
 [ext_resource type="PackedScene" uid="uid://dic5yngyfmsoq" path="res://scenes/Objetos nivel/Plataforma.tscn" id="4_1ogxg"]
-[ext_resource type="Script" path="res://scripts/Objetos/zona_caida.gd" id="5_nhjbh"]
-[ext_resource type="PackedScene" uid="uid://bkj0o5bwpixke" path="res://scenes/Personajes/objetivo.tscn" id="6_r5hxg"]
+[ext_resource type="Script" path="res://scripts/Objetos/objetoMuerte.gd" id="5_nhjbh"]
+[ext_resource type="PackedScene" uid="uid://bkj0o5bwpixke" path="res://scenes/Personajes/npc.tscn" id="6_r5hxg"]
 [ext_resource type="PackedScene" uid="uid://d3kysikiv5kqw" path="res://scenes/Personajes/Enemigos/enemigoElectrico.tscn" id="6_u081c"]
 [ext_resource type="PackedScene" uid="uid://cegfwj0658rdr" path="res://scenes/Personajes/Enemigos/enemigoNormal.tscn" id="7_q5ay0"]
 [ext_resource type="PackedScene" uid="uid://rs8klwnc7dcy" path="res://scenes/Objetos nivel/vida.tscn" id="7_q8dj4"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cojpq1152ih5f" path="res://scenes/Objetos nivel/puerta.tscn" id="9_5y5gx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grrlj"]
-size = Vector2(1500, 20)
+size = Vector2(2700, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dn6m"]
 size = Vector2(20, 50)
@@ -24,7 +24,7 @@ tile_set = ExtResource("1_8tsbs")
 script = ExtResource("2_83vkk")
 
 [node name="Zona caida" type="Area2D" parent="."]
-position = Vector2(650, 175)
+position = Vector2(1100, 175)
 script = ExtResource("5_nhjbh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zona caida"]
@@ -43,7 +43,7 @@ position = Vector2(600, 83)
 shape = SubResource("RectangleShape2D_7dn6m")
 
 [node name="Plataforma" parent="." instance=ExtResource("4_1ogxg")]
-position = Vector2(657, 108)
+position = Vector2(657, 118)
 desplazamiento = Vector2(-324, 0)
 velocidad = 50.0
 repetir = false
@@ -82,7 +82,7 @@ vida = 30
 position = Vector2(2107, 91)
 numLlavesNecesarias = 3
 
-[node name="personaje" parent="." instance=ExtResource("6_r5hxg")]
+[node name="npc" parent="." instance=ExtResource("6_r5hxg")]
 position = Vector2(2151, 99)
 
 [connection signal="body_entered" from="Zona caida" to="Zona caida" method="_on_body_entered"]

@@ -20,7 +20,7 @@ var velocidad_max
 @onready var posicion_inicial_x = position.x
 
 func _ready():
-	sprite.play("walk")
+	sprite.play("caminar")
 	vida_max=vida
 	velocidad_max = velocidad*2
 	
@@ -40,9 +40,9 @@ func _physics_process(_delta):
 	if not atacando and not recibiendoDano:
 		sprite.flip_h = (direccion == 1)
 		if vida > vida_max/2:
-			sprite.play("walk")
+			sprite.play("caminar")
 		else:
-			sprite.play("run")
+			sprite.play("correr")
 			velocidad=velocidad_max
 
 func _process(_delta):
@@ -51,11 +51,8 @@ func _process(_delta):
 
 func _perseguir():
 	if jugador_objetivo and is_instance_valid(jugador_objetivo):
-		var objetivo_x = jugador_objetivo.position.x
-
 		velocity.x = direccion * velocidad
 
-		# Evitar que el enemigo salga de los límites
 		var limite_izq = posicion_inicial_x - limite_izquierdo
 		var limite_der = posicion_inicial_x + limite_derecho
 
@@ -90,11 +87,10 @@ func recibir_dano(dano: int):
 	velocity.x = 0
 	recibiendoDano = true
 
-	# Interrumpe el ataque si está atacando
 	atacando = false
 
 	if vida <= 0:
-		sprite.play("dead")
+		sprite.play("morir")
 		await sprite.animation_finished
 		queue_free()
 		if llave_escena:
@@ -102,7 +98,7 @@ func recibir_dano(dano: int):
 			llave.position = position
 			get_parent().add_child(llave)
 	else:
-		sprite.play("hurt")
+		sprite.play("recibirDaño")
 		await sprite.animation_finished
 		recibiendoDano = false
 
@@ -118,13 +114,13 @@ func _iniciar_ataque():
 	if objetivo_ataque and is_instance_valid(objetivo_ataque) and not atacando and not recibiendoDano:
 		atacando = true
 		velocity.x = 0
-		sprite.play("atack")
+		sprite.play("atacar")
 		await sprite.animation_finished
 
 		if not recibiendoDano and objetivo_ataque and is_instance_valid(objetivo_ataque) and objetivo_ataque.has_method("perder_vida"):
 			objetivo_ataque.perder_vida(1)
 
-		atacando = false  # Termina ataque
+		atacando = false
 
 func _on_area_deteccion_izquierda_body_entered(body):
 	_iniciar_persecucion(body, -1)

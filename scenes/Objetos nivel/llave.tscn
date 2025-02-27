@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxepc6rrakwru"]
 
 [ext_resource type="Script" path="res://scripts/Objetos/llave.gd" id="1_7vsrg"]
-[ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="2_e46g8"]
+[ext_resource type="Texture2D" uid="uid://cqdv4jdpns6py" path="res://Assets/objetos/llave.png" id="2_8vncr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw4m0"]
 radius = 10.5
@@ -9,15 +9,13 @@ radius = 10.5
 [node name="Llave" type="Node2D" groups=["objeto"]]
 texture_filter = 1
 
-[node name="Llave" type="Area2D" parent="."]
+[node name="Area" type="Area2D" parent="."]
 script = ExtResource("1_7vsrg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Llave"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_yw4m0")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Llave"]
-position = Vector2(9.5, 8.5)
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 2, 0, 7, 0, 1, 0, 0, 0)
-tile_set = ExtResource("2_e46g8")
+[node name="Sprite2D" type="Sprite2D" parent="Area"]
+texture = ExtResource("2_8vncr")
 
-[connection signal="body_entered" from="Llave" to="Llave" method="_on_body_entered"]
+[connection signal="body_entered" from="Area" to="Area" method="_on_body_entered"]
