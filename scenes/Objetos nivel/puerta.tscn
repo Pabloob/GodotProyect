@@ -7,7 +7,7 @@
 size = Vector2(25, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cp0k"]
-size = Vector2(18, 23)
+size = Vector2(18, 40)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fd273"]
 font_size = 13

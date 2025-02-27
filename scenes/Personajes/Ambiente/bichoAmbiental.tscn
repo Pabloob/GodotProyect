@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://bo234rbmapa5o"]
+
+[ext_resource type="Script" path="res://scripts/Personajes/bicho_ambiental.gd" id="1_agum2"]
+[ext_resource type="Texture2D" uid="uid://qpq3qp0gbq5s" path="res://Assets/mapa/monochrome_tilemap_transparent_packed.png" id="1_xur8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x5ke"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(0, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ypjx"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(18, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df3g1"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(36, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2psxw"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(54, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyher"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(72, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr8sa"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(90, 216, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1sxg"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(0, 306, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfwk8"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(18, 306, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wyww"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(36, 306, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtebo"]
+atlas = ExtResource("1_xur8k")
+region = Rect2(54, 306, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tjx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x5ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ypjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df3g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2psxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyher")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr8sa")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1sxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfwk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wyww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtebo")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="BichoAmbiental" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_agum2")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7tjx6")
+animation = &"1"
+
+[connection signal="animation_finished" from="Animacion" to="." method="_on_animacion_animation_finished"]

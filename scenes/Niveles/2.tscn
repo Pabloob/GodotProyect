@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dlf8weyog40yx"]
+[gd_scene load_steps=14 format=4 uid="uid://dlf8weyog40yx"]
 
 [ext_resource type="TileSet" uid="uid://yfe0gi1t0slb" path="res://mapa.tres" id="1_8tsbs"]
 [ext_resource type="Script" path="res://scripts/Mundos/2.gd" id="2_83vkk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://rs8klwnc7dcy" path="res://scenes/Objetos nivel/vida.tscn" id="7_q8dj4"]
 [ext_resource type="PackedScene" uid="uid://cuny5sbe1t2ma" path="res://scenes/Personajes/Enemigos/enemigoFuego.tscn" id="8_dman0"]
 [ext_resource type="PackedScene" uid="uid://cojpq1152ih5f" path="res://scenes/Objetos nivel/puerta.tscn" id="9_5y5gx"]
+[ext_resource type="PackedScene" uid="uid://bo234rbmapa5o" path="res://scenes/Personajes/Ambiente/bichoAmbiental.tscn" id="11_14dgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grrlj"]
 size = Vector2(2700, 20)
@@ -84,6 +85,23 @@ numLlavesNecesarias = 3
 
 [node name="npc" parent="." instance=ExtResource("6_r5hxg")]
 position = Vector2(2151, 99)
+
+[node name="BichoAmbiental" parent="." instance=ExtResource("11_14dgw")]
+position = Vector2(1323, -7)
+
+[node name="BichoAmbiental2" parent="." instance=ExtResource("11_14dgw")]
+position = Vector2(1341, -7)
+tipoBicho = 2
+
+[node name="BichoAmbiental3" parent="." instance=ExtResource("11_14dgw")]
+position = Vector2(1359, -7)
+
+[node name="BichoAmbiental4" parent="." instance=ExtResource("11_14dgw")]
+position = Vector2(1377, -7)
+tipoBicho = 2
+
+[node name="BichoAmbiental5" parent="." instance=ExtResource("11_14dgw")]
+position = Vector2(1395, -7)
 
 [connection signal="body_entered" from="Zona caida" to="Zona caida" method="_on_body_entered"]
 [connection signal="body_entered" from="zonaNormal" to="." method="_on_zona_normal_body_entered"]
