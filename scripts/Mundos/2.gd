@@ -2,9 +2,15 @@ extends TileMapLayer
 
 var enZonaJefeFinal = false  # Indica si el jugador está en la zona del jefe final
 
-@onready var ui = get_tree().get_first_node_in_group("ui")  # Referencia a la UI
-@onready var fondo = get_tree().get_first_node_in_group("fondo")  # Referencia al fondo del nivel
+var ui # Referencia a la UI
+var fondo  # Referencia al fondo del nivel
 
+func _ready():
+	await get_tree().process_frame
+	
+	fondo = get_tree().get_first_node_in_group("fondo")
+	ui = get_tree().get_first_node_in_group("ui")
+	
 func _on_zona_normal_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("jugador"):
 		return  # Ignora cualquier objeto que no sea el jugador

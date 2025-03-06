@@ -49,7 +49,7 @@ position = Vector2(903, 101)
 velocidad = 20.0
 limite_izquierdo = 50.0
 limite_derecho = 50.0
-vida = 10
+vida = 4
 
 [node name="Plataforma1" parent="." instance=ExtResource("4_ffb4q")]
 position = Vector2(729, 118)

@@ -54,14 +54,14 @@ position = Vector2(200, 63)
 velocidad = 20.0
 limite_izquierdo = 40.0
 limite_derecho = 40.0
-vida = 10
+vida = 4
 
 [node name="enemigo2" parent="." instance=ExtResource("6_u081c")]
 position = Vector2(750, 100)
 velocidad = 20.0
 limite_izquierdo = 50.0
 limite_derecho = 50.0
-vida = 14
+vida = 6
 
 [node name="Vida" parent="." instance=ExtResource("7_q8dj4")]
 position = Vector2(1323, 49)
@@ -77,7 +77,7 @@ position = Vector2(1900, 100)
 velocidad = 30.0
 limite_izquierdo = 100.0
 limite_derecho = 100.0
-vida = 30
+vida = 8
 
 [node name="Puerta" parent="." instance=ExtResource("9_5y5gx")]
 position = Vector2(2107, 91)

@@ -5,7 +5,7 @@ const ALTURA_SALTO = -250  # Fuerza del salto
 const GRAVEDAD = 15  # Fuerza de gravedad aplicada al personaje
 
 # Variable exportada para definir el tiempo de espera entre ataques
-@export var COOLDOWN_ATAQUE: float = 1.1
+@export var COOLDOWN_ATAQUE: float = 0.7
 
 # Variables de movimiento y estado del personaje
 var velocidad_movimiento = 100

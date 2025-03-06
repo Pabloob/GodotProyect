@@ -275,7 +275,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.75,
 "texture": SubResource("AtlasTexture_ykta6")
 }, {
 "duration": 0.5,
@@ -311,8 +311,8 @@ llave_escena = ExtResource("2_c0byn")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urkkh")
-animation = &"atacar"
-frame = 5
+animation = &"recibirDaño"
+frame = 4
 frame_progress = 1.0
 
 [node name="Colision" type="CollisionShape2D" parent="."]

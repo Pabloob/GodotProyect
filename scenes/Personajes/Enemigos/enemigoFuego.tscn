@@ -159,22 +159,22 @@ region = Rect2(256, 128, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_8g8e3"]
 animations = [{
 "frames": [{
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u5ndy")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pg5pq")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fbp07")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_si2xv")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mhdti")
 }, {
-"duration": 0.7,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c7fx5")
 }],
 "loop": false,
@@ -275,19 +275,19 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.75,
 "texture": SubResource("AtlasTexture_wqmkr")
 }, {
-"duration": 0.5,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_v788u")
 }, {
-"duration": 0.5,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_nnvhd")
 }, {
-"duration": 0.5,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_6iy7r")
 }, {
-"duration": 0.5,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_uf403")
 }],
 "loop": false,
@@ -311,9 +311,7 @@ llave_escena = ExtResource("2_dj0dq")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8g8e3")
-animation = &"atacar"
-frame = 5
-frame_progress = 1.0
+animation = &"recibirDaño"
 
 [node name="Colision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2ipx6")

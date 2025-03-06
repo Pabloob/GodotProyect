@@ -309,7 +309,7 @@ radius = 5.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pkg3"]
-size = Vector2(25, 20)
+size = Vector2(40, 20)
 
 [node name="jugador" type="CharacterBody2D" groups=["jugador"]]
 texture_filter = 1
